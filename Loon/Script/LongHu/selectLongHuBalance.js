@@ -31,7 +31,7 @@ function GetUserRechargeInfoByRoom() {
 
     $.post(params, function (error, response, data) {
         if (error) {
-            $.log('错误原因：{}', error)
+            $.log('错误原因：' + error)
             $.msg(title, '❌查询失败', '查询用电信息失败')
         } else if (!data) {
             $.log('没有获取到数据')
