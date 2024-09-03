@@ -48,6 +48,7 @@ function GetCookie() {
         } else {
             $.msg(`${message}失败‼️`, '', '');
         }
+        $done();
     } catch (error) {
         $.msg('设置龙湖Cookie时发生错误‼️', '', '');
     }
