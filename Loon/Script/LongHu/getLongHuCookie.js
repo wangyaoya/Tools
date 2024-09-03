@@ -21,7 +21,7 @@ if (typeof $request !== 'undefined') {
     if (!$.getdata('@LongHu.headers')) {
         $.msg(title, ``, `Cookie失效/未获取 ⚠️`);
     }
-    $.done({});
+    $.done();
 }
 
 function GetCookie() {
@@ -35,7 +35,6 @@ function GetCookie() {
 
     try {
         LongHuInfo.headers = headers;
-        
         let message;
         if (LongHuInfo.headers === '') {
             message = '首次写入龙湖Cookie';
