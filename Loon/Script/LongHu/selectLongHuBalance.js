@@ -23,7 +23,7 @@ if (!LongHuInfo.headers) {
 }
 
 function GetUserRechargeInfoByRoom() {
-    let params = {
+    const params = {
         url: url,
         timeout: 5000,
         headers: LongHuInfo.headers,

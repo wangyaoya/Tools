@@ -1,9 +1,9 @@
 #!name=龙湖余量获取Cookie
-#!desc=龙湖余量获取Cookie
+#!desc=通过进入[长沙至美物业公众号->物业服务->祺鑫星座缴电费]页面自动获取当前账号的Cookie
 #!tag=自用
 #!openUrl=
 #!author=wangyao
-#!homepage=
+#!homepage=https://github.com/wangyaoya/vpn_tool
 #!icon=
 #!date=2024年9月1日18:29:31
 
@@ -12,7 +12,7 @@
 DOMAIN, jiaofei.longhuqx.com, DIRECT
 
 [Script]
-http-request ^https?:\/\/(jiaofei|jiaofei)\.longhuqx\.com\/wx\/api\/Home\/getWxInfo script-path=https://gist.githubusercontent.com/wangyaoya/c90b04c5b10cb559daf4ca585792a66a/raw/getLongHuCookie.js, requires-body=true, timeout=10, enabled=true, tag=龙湖查询用电量获取Cookie
+http-request ^https?:\/\/(jiaofei|jiaofei)\.longhuqx\.com\/wx\/api\/Home\/getWxInfo script-path=https://gist.githubusercontent.com/wangyaoya/c90b04c5b10cb559daf4ca585792a66a/raw/getLongHuCookie.js, requires-body=true, timeout=10, enabled=true, tag=自动获取Cookie
 
 [MITM]
 hostname = jiaofei.longhuqx.com

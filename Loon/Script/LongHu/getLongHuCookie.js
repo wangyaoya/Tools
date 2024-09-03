@@ -22,36 +22,41 @@ if (typeof $request !== 'undefined') {
         $.msg(title, ``, `Cookie失效/未获取 ⚠️`);
     }
     $.done({});
-} 
+}
 
 function GetCookie() {
-    $.log('request.headers ==> ' + JSON.stringify($request.headers))
-    const accept = $request.headers['accept']
-    const authUA = $request.headers['user-agent']
-    const cookies = $request.headers['cookie']
-    const headers = { 'accept': accept, 'user-agent': authUA, 'cookie': cookies }
-    if (LongHuInfo.headers !== '') {
-        LongHuInfo.headers = headers
-        const t = $.setjson(LongHuInfo, keyName)
-        if (t) {
-            $.msg('更新龙湖Cookie成功 🎉', '', '')
+    // 使用日志级别控制打印内容
+    $.log(`request.headers ==> ${JSON.stringify($request.headers)}`);
+    
+    const accept = $request.headers['accept'];
+    const authUA = $request.headers['user-agent'];
+    const cookies = $request.headers['cookie'];
+    const headers = { 'accept': accept, 'user-agent': authUA, 'cookie': cookies };
+
+    try {
+        LongHuInfo.headers = headers;
+        
+        let message;
+        if (LongHuInfo.headers === '') {
+            message = '首次写入龙湖Cookie';
         } else {
-            $.msg('更新龙湖Cookie失败‼️', '', '')
+            message = '更新龙湖Cookie';
         }
-    } else {
-        LongHuInfo.headers = headers
-        const t = $.setjson(LongHuInfo, keyName)
+
+        const t = $.setjson(LongHuInfo, keyName);
         if (t) {
-            $.msg('首次写入龙湖Cookie成功 🎉', '', '')
+            $.msg(`${message}成功 🎉`, '', '');
         } else {
-            $.msg('首次写入龙湖Cookie失败‼️', '', '')
+            $.msg(`${message}失败‼️`, '', '');
         }
+    } catch (error) {
+        $.msg('设置龙湖Cookie时发生错误‼️', '', '');
     }
 }
 
 
 function GetUserRechargeInfoByRoom() {
-    let params = {
+    const params = {
         url: url,
         timeout: 5000,
         headers: LongHuInfo.headers,
@@ -68,7 +73,7 @@ function GetUserRechargeInfoByRoom() {
             let body = JSON.parse(data)
             $.msg(title, '✅查询成功', `${body.Data[0].FullRoomName}\n剩余余额：${body.Data[0].Balance}  剩余电量：${body.Data[0].SyVal}`)
         }
-        $done({});
+        $done();
     });
 }
 
