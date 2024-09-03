@@ -21,7 +21,7 @@ if (typeof $request !== 'undefined') {
     if (!$.getdata('@LongHu.headers')) {
         $.msg(title, ``, `Cookie失效/未获取 ⚠️`);
     }
-    $.done();
+    $.done({});
 } 
 
 function GetCookie() {
@@ -68,7 +68,7 @@ function GetUserRechargeInfoByRoom() {
             let body = JSON.parse(data)
             $.msg(title, '✅查询成功', `${body.Data[0].FullRoomName}\n剩余余额：${body.Data[0].Balance}  剩余电量：${body.Data[0].SyVal}`)
         }
-        $done();
+        $done({});
     });
 }
 
