@@ -1,0 +1,19 @@
+#!name=龙湖余量查询用电量
+#!desc=龙湖余量查询用电量
+#!tag=自用
+#!openUrl=
+#!author=wangyao
+#!homepage=
+#!icon=
+#!date=2024年9月1日17:46:30
+
+[Rule]
+# 放行规则
+DOMAIN, jiaofei.longhuqx.com, DIRECT
+
+
+[Script]
+cron "0/30 * * * *" script-path=https://raw.githubusercontent.com/wangyaoya/vpn_tool/master/Loon/Script/LongHu/selectLongHuBalance.js, requires-body=true, timeout=10, enabled=true, tag=龙湖查询用电量
+
+[MITM]
+hostname = jiaofei.longhuqx.com
