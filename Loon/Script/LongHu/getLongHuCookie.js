@@ -41,14 +41,13 @@ function GetCookie() {
         } else {
             message = '更新龙湖Cookie';
         }
-
         const t = $.setjson(LongHuInfo, keyName);
         if (t) {
             $.msg(`${message}成功 🎉`, '', '');
         } else {
             $.msg(`${message}失败‼️`, '', '');
         }
-        $done();
+        $.done({})
     } catch (error) {
         $.msg('设置龙湖Cookie时发生错误‼️', '', '');
     }
@@ -73,7 +72,7 @@ function GetUserRechargeInfoByRoom() {
             let body = JSON.parse(data)
             $.msg(title, '✅查询成功', `${body.Data[0].FullRoomName}\n剩余余额：${body.Data[0].Balance}  剩余电量：${body.Data[0].SyVal}`)
         }
-        $done();
+        $done({});
     });
 }
 
