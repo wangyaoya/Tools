@@ -39,7 +39,9 @@ function GetUserRechargeInfoByRoom() {
             $.log("Response Body: " + data);
             let body = JSON.parse(data)
             const balance = body.Data[0].Balance
-            $.msg(title, '✅查询成功', `${body.Data[0].FullRoomName}\n剩余余额：${body.Data[0].Balance}  剩余电量：${body.Data[0].SyVal}`)
+            if（balance < 11）{
+                $.msg(title, '✅查询成功', `${body.Data[0].FullRoomName}\n剩余余额：${body.Data[0].Balance}  剩余电量：${body.Data[0].SyVal}`)
+            }
         }
         $.done({})
     });
