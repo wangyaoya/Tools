@@ -1,0 +1,23 @@
+#!name=龙湖余量
+#!desc=龙湖余量获取Cookie&查询用电量
+#!date=2025-05-12
+#!tag=自用
+#!openUrl=https://gist.github.com/wangyaoya/c90b04c5b10cb559daf4ca585792a66a
+#!homepage=https://gist.github.com/wangyaoya/c90b04c5b10cb559daf4ca585792a66a
+#!icon=https://raw.githubusercontent.com/Softlyx/Fileball/main/YUAN/ALiYun.png
+
+
+[Argument]
+COOKIE = switch,true, false, tag = 获取Cookie
+SELECT = switch,true, false, tag = 龙湖余量查询用电量
+
+[Script]
+# 获取Cookie
+http-request ^https?:\/\/(jiaofei|jiaofei)\.longhuqx\.com\/wx\/api\/Home\/getWxInfo script-path=https://gist.githubusercontent.com/wangyaoya/c90b04c5b10cb559daf4ca585792a66a/raw/getLongHuCookie.js, requires-body=true, timeout=10, enabled=true, tag=龙湖查询用电量获取Cookie, enable={COOKIE}
+
+# 龙湖余量查询用电量
+cron "0/30 * * * *" script-path=https://gist.githubusercontent.com/wangyaoya/c90b04c5b10cb559daf4ca585792a66a/raw/selectLongHuBalance.js, requires-body=true, timeout=10, enabled=true, tag=龙湖查询用电量, enable={SELECT}
+
+
+[MITM]
+hostname = jiaofei.longhuqx.com
