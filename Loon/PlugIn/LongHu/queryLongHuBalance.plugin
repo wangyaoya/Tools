@@ -4,8 +4,6 @@
 #!tag=自用
 #!openUrl=https://gist.github.com/wangyaoya/c90b04c5b10cb559daf4ca585792a66a
 #!homepage=https://gist.github.com/wangyaoya/c90b04c5b10cb559daf4ca585792a66a
-#!icon=https://raw.githubusercontent.com/Softlyx/Fileball/main/YUAN/ALiYun.png
-
 
 [Argument]
 COOKIE = switch,true, false, tag = 获取Cookie
