@@ -1,9 +1,9 @@
 #!name=龙湖余量
 #!desc=龙湖余量获取Cookie&查询用电量
-#!date=2025-05-12
+#!date=2025-05-13
 #!tag=自用
-#!openUrl=https://gist.github.com/wangyaoya/c90b04c5b10cb559daf4ca585792a66a
-#!homepage=https://gist.github.com/wangyaoya/c90b04c5b10cb559daf4ca585792a66a
+#!openUrl=https://github.com/wangyaoya/vpn_tool
+#!homepage=https://github.com/wangyaoya/vpn_tool
 
 [Argument]
 COOKIE = switch,true, false, tag = 获取Cookie
