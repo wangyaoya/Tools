@@ -4,6 +4,7 @@
 #!tag=自用
 #!openUrl=https://github.com/wangyaoya/vpn_tool
 #!homepage=https://github.com/wangyaoya/vpn_tool
+#!input = x-api-key
 
 [Argument]
 COOKIE = switch,true, false, tag = 获取Cookie
