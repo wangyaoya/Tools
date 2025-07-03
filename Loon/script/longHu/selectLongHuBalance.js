@@ -11,7 +11,8 @@ let LongHu = {
 }
 const url = "http://jiaofei.longhuqx.com/wx/api/Recharge/GetUserRechargeInfoByRoom?roomId=2074&pFunType=";
 
-LongHuInfo = $.getjson(keyName) || LongHu
+// 修复：添加变量声明
+let LongHuInfo = $.getjson(keyName) || LongHu
 if (!LongHuInfo.headers) {
     if (!$.getdata('@LongHu.headers')) {
         $.msg(title, ``, `Cookie失效/未获取 ⚠️`);
@@ -37,14 +38,75 @@ function GetUserRechargeInfoByRoom() {
             $.log('没有获取到数据')
         } else {
             $.log("Response Body: " + data);
-            let body = JSON.parse(data)
-            const balance = body.Data[0].Balance
-            if (balance < 11) {
-                $.msg(title, '✅查询成功', `${body.Data[0].FullRoomName}\n剩余余额：${body.Data[0].Balance}  剩余电量：${body.Data[0].SyVal}`)
+            // 修复：添加 try 块包裹 JSON 解析及后续逻辑
+            try {
+                let body = JSON.parse(data)
+                // 验证返回数据格式
+                if (!body.Data || !body.Data[0]) {
+                    throw new Error('API返回格式错误，缺少Data字段')
+                }
+                const balance = body.Data[0].Balance
+                const syVal = body.Data[0].SyVal
+                
+                if (balance < 11) {
+                    $.msg(title, '⚠️电量提醒', `${body.Data[0].FullRoomName}\n剩余余额：${balance}  剩余电量：${syVal}`)
+                } else {
+                    $.msg(title, '✅查询成功', `${body.Data[0].FullRoomName}\n剩余余额：${balance}  剩余电量：${syVal}`)
+                }
+                
+                uploudPowerInfo(`{"SyVal":${syVal},"Balance":${balance}}`)
+            } catch (e) {
+                $.log('解析错误：' + e.message)
+                $.msg(title, '❌解析失败', '解析用电信息失败')
             }
         }
         $.done({})
     });
+}
+
+const apiKeyName = 'x-api-key' // API密钥的存储键名
+let cfUrl = 'https://longfor-power.pages.dev/api/update'
+
+// 加载API密钥
+function loadAPIKey() {
+    return $.getdata(apiKeyName) // 从本地持久化配置读取
+}
+
+function uploudPowerInfo(param) {
+    const apiKey = loadAPIKey()
+    if (!apiKey) {
+        $.msg(title, '❌上传失败', '未找到API密钥，请先配置')
+    } else {
+        const params = {
+            url: cfUrl,
+            timeout: 5000,
+            headers: {
+                "x-api-key": apiKey,
+                "Content-Type": "application/json" // 明确JSON格式
+            },
+            body: param // 发送JSON字符串
+        };
+
+        $.post(params, function (error, response, data) {
+            if (error) {
+                $.log('上传错误原因：' + error)
+                $.msg(title, '❌上传失败', '当前用电量信息上传失败')
+            } else {
+                $.log("上传响应：" + data);
+                if (data === 'OK') {
+                    $.log('上传成功：' + data)
+                } else {
+                    if (data.includes('invalid key')) {
+                        $.msg(title, '❌API密钥失效', '请更新API密钥')
+                    } else {
+                        $.log('上传异常：' + data)
+                        $.msg(title, '❌上传异常', '服务器返回：' + data)
+                    }
+                }
+            }
+        });
+    }
+    $.done({})
 }
 
 
