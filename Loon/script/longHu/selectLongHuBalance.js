@@ -10,6 +10,7 @@ let LongHu = {
     headers: ''
 }
 const url = "http://jiaofei.longhuqx.com/wx/api/Recharge/GetUserRechargeInfoByRoom?roomId=2074&pFunType=";
+let alarmBalance = $.getjson('alarmbalance') || 11
 
 // 修复：添加变量声明
 let LongHuInfo = $.getjson(keyName) || LongHu
@@ -48,10 +49,10 @@ function GetUserRechargeInfoByRoom() {
                 const balance = body.Data[0].Balance
                 const syVal = body.Data[0].SyVal
                 
-                if (balance < 11) {
+                if (balance < alarmBalance) {
                     $.msg(title, '⚠️电量提醒', `${body.Data[0].FullRoomName}\n剩余余额：${balance}  剩余电量：${syVal}`)
-                } else {
-                    $.msg(title, '✅查询成功', `${body.Data[0].FullRoomName}\n剩余余额：${balance}  剩余电量：${syVal}`)
+                // } else {
+                    // $.msg(title, '✅查询成功', `${body.Data[0].FullRoomName}\n剩余余额：${balance}  剩余电量：${syVal}`)
                 }
                 
                 uploudPowerInfo(`{"SyVal":${syVal},"Balance":${balance}}`)
