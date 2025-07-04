@@ -5,6 +5,7 @@
 #!openUrl=https://github.com/wangyaoya/vpn_tool
 #!homepage=https://github.com/wangyaoya/vpn_tool
 #!input = x-api-key
+#!input = alarmbalance
 
 [Argument]
 COOKIE = switch,true, false, tag = 获取Cookie
