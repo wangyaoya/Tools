@@ -1,22 +1,29 @@
-#!name=龙湖余量
-#!desc=龙湖余量获取Cookie&查询用电量
-#!date=2025-05-13
+#!name=龙湖余量查询
+#!desc=支持在Loon客户端配置定时任务、告警阈值等参数
+#!date=2025-07-05
 #!tag=自用
-#!openUrl=https://github.com/wangyaoya/vpn_tool
 #!homepage=https://github.com/wangyaoya/vpn_tool
-#!input = x-api-key
-#!input = alarmbalance
 
 [Argument]
-COOKIE = switch,true, false, tag = 获取Cookie
-SELECT = switch,true, false, tag = 龙湖余量查询用电量
+# 基础开关配置
+COOKIE_ENABLE = switch, true, 启用获取Cookie, 禁用获取Cookie, tag=Cookie功能开关
+QUERY_ENABLE = switch, true, 启用余量查询, 禁用余量查询, tag=查询功能开关
+
+# 定时任务配置（Cron表达式）
+CRON_EXPRESSION = text, 0/30 * * * *, 每30秒执行一次, 定时任务Cron表达式（格式：分 时 日 月 周）, tag=定时频率
+
+# 告警阈值配置
+ALARM_BALANCE = number, 100, 100, 告警阈值（元）, 当余额低于此值时触发通知, tag=告警金额
+
+# 调试模式配置
+DEBUG_MODE = switch, false, 启用调试, 禁用调试, tag=调试开关
 
 [Script]
-# 获取Cookie
-http-request ^https?:\/\/(jiaofei|jiaofei)\.longhuqx\.com\/wx\/api\/Home\/getWxInfo script-path=https://raw.githubusercontent.com/wangyaoya/vpn_tool/master/Loon/script/longHu/getLongHuCookie.js, requires-body=true, timeout=10, enabled=true, tag=龙湖查询用电量获取Cookie, enable={COOKIE}
+# 获取Cookie（关联开关参数）
+http-request ^https?:\/\/jiaofei\.longhuqx\.com\/wx\/api\/Home\/getWxInfo script-path=https://raw.githubusercontent.com/wangyaoya/vpn_tool/master/Loon/script/longHu/client_config_getCookie.js, requires-body=true, timeout=10, enabled=true, tag=获取龙湖Cookie, enable={COOKIE_ENABLE}
 
-# 龙湖余量查询用电量
-cron "0/30 * * * *" script-path=https://raw.githubusercontent.com/wangyaoya/vpn_tool/master/Loon/script/longHu/selectLongHuBalance.js, requires-body=true, timeout=10, enabled=true, tag=龙湖查询用电量, enable={SELECT}
+# 余量查询（关联定时任务和开关参数）
+cron "{CRON_EXPRESSION}" script-path=https://raw.githubusercontent.com/wangyaoya/vpn_tool/master/Loon/script/longHu/client_config_query.js, requires-body=true, timeout=10, enabled=true, tag=龙湖余量查询, enable={QUERY_ENABLE}
 
 [MITM]
 hostname = jiaofei.longhuqx.com
