@@ -51,8 +51,8 @@ function GetUserRechargeInfoByRoom() {
                 
                 if (balance < alarmBalance) {
                     $.msg(title, '⚠️电量提醒', `${body.Data[0].FullRoomName}\n剩余余额：${balance}  剩余电量：${syVal}`)
-                // } else {
-                    // $.msg(title, '✅查询成功', `${body.Data[0].FullRoomName}\n剩余余额：${balance}  剩余电量：${syVal}`)
+                } else {
+                    $.log('✅查询成功', `${body.Data[0].FullRoomName}\n剩余余额：${balance}  剩余电量：${syVal}`)
                 }
                 
                 uploudPowerInfo(`{"SyVal":${syVal},"Balance":${balance}}`)
