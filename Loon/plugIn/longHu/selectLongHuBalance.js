@@ -46,14 +46,12 @@ function getMeterDetail() {
             $.log("Response Body: " + data);
             try {
                 let body = JSON.parse(data);
-                if (!body || !body.Data || !body.Data[0]) {
-                    throw new Error('接口响应数据格式错误！');
-                }
-                const { Balance: balance, SyVal: syVal, FullRoomName } = body.Data[0];
-                if (balance < alarmBalance) {
-                    $.msg(title, '⚠️电量提醒', `${FullRoomName}\n剩余余额：${balance}  剩余电量：${syVal}`);
+                let amount = body.amount;
+                if (typeof amount === 'undefined') throw new Error('接口无amount字段');
+                if (amount < alarmBalance) {
+                    $.msg(title, '⚠️电量提醒', `房间：${body.meterName || body.numplate}\n剩余余额：${amount}`);
                 } else {
-                    $.log('✅查询成功', `${FullRoomName}\n剩余余额：${balance}  剩余电量：${syVal}`);
+                    $.log('✅查询成功', `房间：${body.meterName || body.numplate}\n剩余余额：${amount}`);
                 }
             } catch (e) {
                 $.log('解析错误：' + e.message);
