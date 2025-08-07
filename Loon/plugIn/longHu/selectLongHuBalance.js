@@ -12,6 +12,8 @@ let alarmBalance = $.getjson('alarmbalance') || 11;
 let WXOpenId = $.getjson('WXOpenId');
 
 if (!WXOpenId) {
+    $.log('🤖 WXOpenId',WXOpenId);
+
     $.msg(title, '', 'WXOpenId未配置 ⚠️');
     $.done({});
 } else {
