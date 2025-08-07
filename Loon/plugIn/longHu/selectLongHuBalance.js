@@ -3,9 +3,9 @@
  * 2025年8月7日17:36:30
  */
 
+const title = '🔔龙湖余量查询用电量'
 const $ = new Env(title, true);
 
-const title = '🔔龙湖余量查询用电量'
 const url = "http://pay.wsdev.cn/api/SCADA/meterInfo/detail";
 
 let alarmBalance = $.getjson('alarmbalance') || 11;
