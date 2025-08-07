@@ -22,10 +22,15 @@ if (!WXOpenId) {
 }
 
 function getMeterDetail() {
-    const params = {
+    // 兼容不同平台，body需为对象或字符串
+    let bodyObj = { WXOpenId };
+    let params = {
         url: url,
         timeout: 5000,
-        body: { "WXOpenId": WXOpenId }
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify(bodyObj)
     };
 
     $.post(params, function (error, response, data) {
