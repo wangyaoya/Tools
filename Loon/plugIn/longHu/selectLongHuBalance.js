@@ -11,10 +11,12 @@ const url = "http://pay.wsdev.cn/api/SCADA/meterInfo/detail";
 // 直接用 getdata 读取 Loon 面板输入
 let alarmBalance = Number($.getdata('alarmbalance')) || 11;
 let WXOpenId = $.getdata('WXOpenId');
+let MeterID = $.getdata('MeterID');
 
-if (!WXOpenId) {
-    $.log('🤖 WXOpenId', WXOpenId, alarmBalance);
-    $.msg(title, '', 'WXOpenId未配置 ⚠️');
+$.log('当前配置==>', WXOpenId, MeterID, alarmBalance);
+
+if (!WXOpenId && !MeterID) {
+    $.msg(title, '', 'WXOpenId或MeterID未配置 ⚠️');
     $.done({});
 } else {
     $.log('🤖查询余量');
@@ -23,7 +25,7 @@ if (!WXOpenId) {
 
 function getMeterDetail() {
     // 兼容不同平台，body需为对象或字符串
-    let bodyObj = { WXOpenId };
+    let bodyObj = { WXOpenId, MeterID };
     let params = {
         url: url,
         timeout: 5000,
