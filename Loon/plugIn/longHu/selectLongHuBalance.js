@@ -8,12 +8,12 @@ const $ = new Env(title, true);
 
 const url = "http://pay.wsdev.cn/api/SCADA/meterInfo/detail";
 
-let alarmBalance = $.getjson('alarmbalance') || 11;
-let WXOpenId = $.getjson('WXOpenId');
+// 直接用 getdata 读取 Loon 面板输入
+let alarmBalance = Number($.getdata('alarmbalance')) || 11;
+let WXOpenId = $.getdata('WXOpenId');
 
 if (!WXOpenId) {
-    $.log('🤖 WXOpenId',WXOpenId);
-
+    $.log('🤖 WXOpenId', WXOpenId, alarmBalance);
     $.msg(title, '', 'WXOpenId未配置 ⚠️');
     $.done({});
 } else {
