@@ -2,10 +2,10 @@
 
 > 一个用于查询龙湖小区用电余额的自动化工具，**完美支持 Loon**，同时兼容 Surge、QuantumultX 等平台
 
-[![GitHub stars](https://img.shields.io/github/stars/wangyaoya/vpn_tool)](https://github.com/wangyaoya/vpn_tool/stargazers)
-[![GitHub forks](https://img.shields.io/github/forks/wangyaoya/vpn_tool)](https://github.com/wangyaoya/vpn_tool/network)
-[![GitHub issues](https://img.shields.io/github/issues/wangyaoya/vpn_tool)](https://github.com/wangyaoya/vpn_tool/issues)
-[![GitHub license](https://img.shields.io/github/license/wangyaoya/vpn_tool)](https://github.com/wangyaoya/vpn_tool/blob/master/LICENSE)
+[![GitHub stars](https://img.shields.io/github/stars/wangyaoya/Tools)](https://github.com/wangyaoya/Tools/stargazers)
+[![GitHub forks](https://img.shields.io/github/forks/wangyaoya/Tools)](https://github.com/wangyaoya/Tools/network)
+[![GitHub issues](https://img.shields.io/github/issues/wangyaoya/Tools)](https://github.com/wangyaoya/Tools/issues)
+[![GitHub license](https://img.shields.io/github/license/wangyaoya/Tools)](https://github.com/wangyaoya/Tools/blob/master/LICENSE)
 [![Loon Support](https://img.shields.io/badge/Loon-✅%20Supported-brightgreen)](https://github.com/Arkon/Loon)
 
 ## 📋 项目概述
@@ -26,7 +26,7 @@ VPN Tool 是一个专门为龙湖小区居民设计的用电余额查询工具�
 
 **一键导入插件：**
 ```
-https://raw.githubusercontent.com/wangyaoya/vpn_tool/master/Loon/plugin/longHu/queryLongHuBalance.plugin
+https://raw.githubusercontent.com/wangyaoya/Tools/master/Loon/plugin/longHu/queryLongHuBalance.plugin
 ```
 
 **手动导入步骤：**
@@ -95,7 +95,7 @@ https://raw.githubusercontent.com/wangyaoya/vpn_tool/master/Loon/plugin/longHu/q
 ## 🏗️ 项目结构
 
 ```
-vpn_tool/
+Tools/
 ├── Loon/                          # 🎯 Loon 专用文件
 │   ├── plugin/
 │   │   └── longHu/
@@ -132,7 +132,7 @@ vpn_tool/
 4. 选择 `插件` 类型
 5. 输入插件链接：
    ```
-   https://raw.githubusercontent.com/wangyaoya/vpn_tool/master/Loon/plugin/longHu/queryLongHuBalance.plugin
+   https://raw.githubusercontent.com/wangyaoya/Tools/master/Loon/plugin/longHu/queryLongHuBalance.plugin
    ```
 6. 点击 `保存`
 
@@ -239,7 +239,7 @@ A: 请检查 Loon 的通知权限设置
 
 ## 📞 联系方式
 
-- **GitHub Issues**: [提交问题](https://github.com/wangyaoya/vpn_tool/issues)
+- **GitHub Issues**: [提交问题](https://github.com/wangyaoya/Tools/issues)
 - **邮箱**: [联系邮箱]
 - **QQ群**: [交流群号]
 

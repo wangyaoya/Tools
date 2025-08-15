@@ -1,7 +1,7 @@
 /**
  * 龙湖余量自动查询与提醒
  * 2025-08-08
- * https://github.com/wangyaoya/vpn_tool
+ * https://github.com/wangyaoya/Tools
  */
 
 // ==================== 配置模块 ====================
