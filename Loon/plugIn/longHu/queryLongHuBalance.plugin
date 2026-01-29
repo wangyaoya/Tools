@@ -1,5 +1,6 @@
 #!name=龙湖查询用电量
-#!desc=龙湖查询用电量，支持在插件设置中配置阈值、OpenId 和电表 ID。
+#!desc=龙湖查询用电量，支持在插件设置中配置阈值、OpenId 和电表 ID
+#!icon=https://raw.githubusercontent.com/wangyaoya/Tools/master/Loon/icon/longhu.jpg
 #!date=2026-01-29
 #!tag=自用
 #!openUrl=https://github.com/wangyaoya/Tools
