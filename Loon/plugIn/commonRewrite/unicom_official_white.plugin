@@ -1,6 +1,6 @@
 #!name=联通白名单重写
 #!desc=自动修改联通白名单接口返回码为0000。
-#!date=2024-05-23
+#!date=2026-01-29
 #!tag=自用
 #!homepage=https://github.com/wangyaoya/Tools
 
