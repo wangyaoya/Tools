@@ -9,7 +9,7 @@
 点击下表中的链接，将通过 Loon 统一链接自动唤起 App 并识别地址：
 | 插件名称 | 功能描述 | 一键导入 (Loon 官方跳转) |
 | :--- | :--- | :--- |
-| **龙湖余量查询** | 自动监控电费余额并提醒 | [📥 点击导入](https://www.nsloon.com/openloon/import?plugin=https%3A%2F%2Fraw.githubusercontent.com%2Fwangyaoya%2FTools%2Fmaster%2FLoon%2Fplugin%2FlongHu%2FqueryLongHuBalance.plugin) |
+| **龙湖余量查询** | 自动监控电费余额并提醒 | [📥 点击导入](https://www.nsloon.com/openloon/import?plugin=https%3A%2F%2Fraw.githubusercontent.com%2Fwangyaoya%2FTools%2Fmaster%2FLoon%2FplugIn%2FlongHu%2FqueryLongHuBalance.plugin) |
 | **联通白名单** | 自动修改白名单接口返回码 | [📥 点击导入](https://www.nsloon.com/openloon/import?plugin=https%3A%2F%2Fraw.githubusercontent.com%2Fwangyaoya%2FTools%2Frefs%2Fheads%2Fmaster%2FLoon%2FplugIn%2FcommonRewrite%2Funicom_official_white.plugin) |
 | **湖北移动SSO** | 优化个人主页/账单跳转逻辑 | [📥 点击导入](https://www.nsloon.com/openloon/import?plugin=https%3A%2F%2Fraw.githubusercontent.com%2Fwangyaoya%2FTools%2Frefs%2Fheads%2Fmaster%2FLoon%2FplugIn%2FcommonRewrite%2Fhb10086_sso_jump.plugin) |
 ---
