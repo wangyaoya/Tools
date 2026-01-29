@@ -1,0 +1,14 @@
+#!name=联通白名单重写
+#!desc=自动修改联通白名单接口返回码为0000。
+#!date=2024-05-23
+#!tag=自用
+#!homepage=https://github.com/wangyaoya/Tools
+
+[Argument]
+UNICOM_ENABLE = switch, true, false, tag=开启联通重写
+
+[Rewrite]
+^https:\/\/m\.client\.10010\.com\/edopinterface\/officialWhite\/checkOfficialWhitePhone response-body-json-jq '.response.head.respCode = "0000"', enabled={UNICOM_ENABLE}
+
+[MITM]
+hostname = m.client.10010.com
