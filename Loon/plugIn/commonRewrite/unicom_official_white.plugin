@@ -4,11 +4,9 @@
 #!tag=自用
 #!homepage=https://github.com/wangyaoya/Tools
 
-[Argument]
-UNICOM_ENABLE = switch, true, false, tag=开启联通重写
-
 [Rewrite]
-^https:\/\/m\.client\.10010\.com\/edopinterface\/officialWhite\/checkOfficialWhitePhone response-body-json-jq '.response.head.respCode = "0000"', enabled={UNICOM_ENABLE}
+# 强制修改白名单返回码为0000
+^https:\/\/m\.client\.10010\.com\/edopinterface\/officialWhite\/checkOfficialWhitePhone response-body-json-jq '.response.head.respCode = "0000"'
 
 [MITM]
 hostname = m.client.10010.com
