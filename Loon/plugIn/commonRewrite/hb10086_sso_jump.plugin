@@ -1,0 +1,21 @@
+#!name=湖北移动SSO跳转优化
+#!desc=优化湖北移动个人主页、套餐余量、账单查询的SSO跳转逻辑。
+#!date=2024-05-23
+#!tag=自用
+#!homepage=https://github.com/wangyaoya/Tools
+
+[Argument]
+HB10086_ENABLE = switch, true, false, tag=开启湖北移动重写
+
+[Rewrite]
+# 1. 个人主页跳转
+^https?:\/\/wap\.hb\.10086\.cn\/weixinCenter\/ssoRedirect\.srv\?.*type=sso2959.* 307 https://wap.hb.10086.cn/wapres/wap-h5/personalcenter/personalCenter.html, enabled={HB10086_ENABLE}
+
+# 2. 套餐余量跳转
+^https?:\/\/wap\.hb\.10086\.cn\/weixinCenter\/ssoRedirect\.srv\?.*type=sso2960.* 307 https://hb.ac.10086.cn/hyh_release/h5/static/flowv2?from_channel=30000, enabled={HB10086_ENABLE}
+
+# 3. 我的账单跳转
+^https?:\/\/wap\.hb\.10086\.cn\/weixinCenter\/ssoRedirect\.srv\?.*type=sso2961.* 307 https://hb.ac.10086.cn/hyh_release/h5/static/bill?from_channel=30000, enabled={HB10086_ENABLE}
+
+[MITM]
+hostname = wap.hb.10086.cn
