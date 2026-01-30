@@ -1,17 +1,17 @@
-# 🎯 Loon 插件集合 (Tools)
+# 🧰 Loon Toolkit
 
-> 个人自用的 Loon 插件库，包含自动化查询、接口重写及体验优化工具。
+> 个人自用的 Loon 工具箱，包含自动化查询、接口重写及体验优化工具。
 
 [![Loon Support](https://img.shields.io/badge/Loon-✅%20Supported-brightgreen)](https://github.com/Arkon/Loon)
-[![GitHub license](https://img.shields.io/github/license/wangyaoya/Tools)](https://github.com/wangyaoya/Tools/blob/master/LICENSE)
+[![GitHub license](https://img.shields.io/github/license/wangyaoya/loon-toolkit)](https://github.com/wangyaoya/loon-toolkit/blob/master/LICENSE)
 
 ## 🚀 插件一键导入
 点击下表中的链接，将通过 Loon 统一链接自动唤起 App 并识别地址：
 | 插件名称 | 功能描述 | 一键导入 (Loon 官方跳转) |
 | :--- | :--- | :--- |
-| **龙湖余量查询** | 自动监控电费余额并提醒 | [📥 点击导入](https://www.nsloon.com/openloon/import?plugin=https%3A%2F%2Fraw.githubusercontent.com%2Fwangyaoya%2FTools%2Fmaster%2FLoon%2FplugIn%2FlongHu%2FqueryLongHuBalance.plugin) |
-| **联通白名单** | 自动修改白名单接口返回码 | [📥 点击导入](https://www.nsloon.com/openloon/import?plugin=https%3A%2F%2Fraw.githubusercontent.com%2Fwangyaoya%2FTools%2Frefs%2Fheads%2Fmaster%2FLoon%2FplugIn%2FcommonRewrite%2Funicom_official_white.plugin) |
-| **湖北移动SSO** | 优化个人主页/账单跳转逻辑 | [📥 点击导入](https://www.nsloon.com/openloon/import?plugin=https%3A%2F%2Fraw.githubusercontent.com%2Fwangyaoya%2FTools%2Frefs%2Fheads%2Fmaster%2FLoon%2FplugIn%2FcommonRewrite%2Fhb10086_sso_jump.plugin) |
+| **龙湖余量查询** | 自动监控电费余额并提醒 | [📥 点击导入](https://www.nsloon.com/openloon/import?plugin=https%3A%2F%2Fraw.githubusercontent.com%2Fwangyaoya%2Floon-toolkit%2Fmaster%2Fplugins%2Fscripts%2Flonghu%2Flonghu-query.plugin) |
+| **联通白名单** | 自动修改白名单接口返回码 | [📥 点击导入](https://www.nsloon.com/openloon/import?plugin=https%3A%2F%2Fraw.githubusercontent.com%2Fwangyaoya%2Floon-toolkit%2Frefs%2Fheads%2Fmaster%2Fplugins%2Frewrites%2Funicom%2Fwhitelist.plugin) |
+| **湖北移动SSO** | 优化个人主页/账单跳转逻辑 | [📥 点击导入](https://www.nsloon.com/openloon/import?plugin=https%3A%2F%2Fraw.githubusercontent.com%2Fwangyaoya%2Floon-toolkit%2Frefs%2Fheads%2Fmaster%2Fplugins%2Frewrites%2Fcmcc%2Fsso.plugin) |
 ---
 
 ## ⚙️ 重点插件配置说明
@@ -36,21 +36,23 @@
 3.  选择 `插件` 模式，粘贴链接并保存。
 
 **原始链接清单：**
-- **龙湖查询**: `https://raw.githubusercontent.com/wangyaoya/Tools/master/Loon/plugin/longHu/queryLongHuBalance.plugin`
-- **联通白名单**: `https://raw.githubusercontent.com/wangyaoya/Tools/refs/heads/master/Loon/plugIn/commonRewrite/unicom_official_white.plugin`
-- **湖北移动SSO**: `https://raw.githubusercontent.com/wangyaoya/Tools/refs/heads/master/Loon/plugIn/commonRewrite/hb10086_sso_jump.plugin`
+- **龙湖查询**: `https://raw.githubusercontent.com/wangyaoya/loon-toolkit/master/plugins/scripts/longhu/longhu-query.plugin`
+- **联通白名单**: `https://raw.githubusercontent.com/wangyaoya/loon-toolkit/refs/heads/master/plugins/rewrites/unicom/whitelist.plugin`
+- **湖北移动SSO**: `https://raw.githubusercontent.com/wangyaoya/loon-toolkit/refs/heads/master/plugins/rewrites/cmcc/sso.plugin`
 
 ---
 
 ## 🏗️ 项目结构简述
 
 ```
-Tools/
-└── Loon/
-    ├── plugIn/
-    │   ├── longHu/           # 龙湖余量查询逻辑
-    │   └── commonRewrite/    # 通用重写插件（联通、移动等）
-    └── README.md
+loon-toolkit/
+├── plugins/
+│   ├── scripts/         # 脚本类插件
+│   │   └── longhu/      # 龙湖余量查询
+│   └── rewrites/        # 重写规则
+│       ├── cmcc/        # 中国移动相关
+│       └── unicom/      # 中国联通相关
+└── icons/               # 插件图标资源
 ```
 
 ## 🐛 常见问题 (FAQ)

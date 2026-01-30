@@ -1,0 +1,19 @@
+#!name=龙湖查询用电量
+#!desc=龙湖查询用电量，支持在插件设置中配置阈值、OpenId 和电表 ID
+#!icon=https://raw.githubusercontent.com/wangyaoya/loon-toolkit/master/icons/longhu.png
+#!author=wangyaoya
+#!homepage=https://github.com/wangyaoya/loon-toolkit
+#!date=2026-01-30
+#!version=1.0.0
+#!tag=自用
+#!openUrl=https://github.com/wangyaoya/loon-toolkit
+#!input=alarmbalance
+#!input=WXOpenId
+#!input=MeterID
+
+[Argument]
+SELECT = switch,true, false, tag=龙湖查询用电量
+
+[Script]
+# 定时任务：每10分钟执行一次
+cron "0/10 * * * *" script-path=https://raw.githubusercontent.com/wangyaoya/loon-toolkit/master/plugins/scripts/longhu/longhu-script.js, timeout=10, enabled={SELECT}, tag=龙湖查询用电量

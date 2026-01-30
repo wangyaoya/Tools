@@ -1,9 +1,11 @@
 #!name=联通白名单重写
 #!desc=自动修改联通白名单接口返回码为0000
-#!icon=https://raw.githubusercontent.com/wangyaoya/Tools/master/Loon/icon/10010.png
-#!date=2026-01-29
+#!icon=https://raw.githubusercontent.com/wangyaoya/loon-toolkit/master/icons/unicom.png
+#!author=wangyaoya
+#!homepage=https://github.com/wangyaoya/loon-toolkit
+#!date=2026-01-30
+#!version=1.0.0
 #!tag=自用
-#!homepage=https://github.com/wangyaoya/Tools
 
 [Rewrite]
 # 强制修改白名单返回码为0000
